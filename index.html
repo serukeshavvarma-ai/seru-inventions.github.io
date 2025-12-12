@@ -1,89 +1,853 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seru Inventions | Product Catalog</title>
-    <style>
-        /* CSS: This controls how the website LOOKS */
-        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-        header { background-color: #232f3e; color: white; padding: 20px; text-align: center; }
-        h1 { margin: 0; }
-        
-        /* Product Grid Layout */
-        .container { max-width: 1200px; margin: 20px auto; padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        
-        /* Product Card Style */
-        .product-card { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s; }
-        .product-card:hover { transform: translateY(-5px); }
-        .product-image { width: 100%; height: 250px; object-fit: cover; border-radius: 5px; background-color: #ddd; }
-        .price { color: #B12704; font-size: 18px; font-weight: bold; margin: 10px 0; }
-        
-        /* The "Grab Customer" Button */
-        .whatsapp-btn {
-            background-color: #25D366; color: white; border: none; padding: 10px 20px;
-            font-size: 16px; border-radius: 5px; cursor: pointer; width: 100%; text-decoration: none; display: inline-block;
-        }
-        .whatsapp-btn:hover { background-color: #128C7E; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Kirrak™ Tees – Custom T‑Shirt Printing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      color: #111827;
+      background: #f9fafb;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ffffffcc;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: #16a34a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: #16a34a;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: #16a34a;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary:hover {
+      background: #15803d;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #111827;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      border-color: #111827;
+    }
+
+    /* Hero */
+    .hero {
+      max-width: 1100px;
+      margin: 20px auto 40px;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #166534;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: #16a34a;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: #4b5563;
+      margin-bottom: 18px;
+    }
+
+    .hero-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      color: #374151;
+      margin-bottom: 20px;
+    }
+
+    .hero-list li::before {
+      content: "• ";
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e5e7eb;
+    }
+
+    .mockup-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .mockup-tees {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .mockup-tee {
+      background: #f3f4f6;
+      border-radius: 12px;
+      height: 90px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .mockup-tee span.badge {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: #111827;
+      color: #f9fafb;
+      font-size: 10px;
+      border-radius: 999px;
+      padding: 2px 6px;
+    }
+
+    .mockup-tee span.color {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      font-size: 9px;
+      color: #4b5563;
+      text-transform: uppercase;
+    }
+
+    .mockup-info {
+      width: 96px;
+      font-size: 11px;
+    }
+
+    .mockup-info h3 {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .mockup-info p {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .mockup-meta {
+      font-size: 10px;
+      color: #4b5563;
+      display: grid;
+      gap: 2px;
+      margin-bottom: 6px;
+    }
+
+    .mockup-meta span strong {
+      color: #111827;
+    }
+
+    .mockup-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .pill {
+      font-size: 9px;
+      border-radius: 999px;
+      padding: 2px 6px;
+      border: 1px solid #e5e7eb;
+      color: #374151;
+      background: #f9fafb;
+    }
+
+    .pill.green {
+      background: #dcfce7;
+      border-color: #bbf7d0;
+      color: #15803d;
+    }
+
+    .mockup-cta {
+      font-size: 10px;
+      color: #16a34a;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .mockup-cta:hover {
+      color: #15803d;
+    }
+
+    .hero-tagline {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 8px;
+    }
+
+    /* Sections */
+    section {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 0 16px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+
+    /* Products grid */
+    #products .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-image {
+      height: 150px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      margin-bottom: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-image.alt-1 {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+    }
+
+    .card-image.alt-2 {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+    }
+
+    .card-image.alt-3 {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #111827;
+      color: #f9fafb;
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .card-body h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .card-body p {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 11px;
+      color: #4b5563;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .card-meta span strong {
+      color: #111827;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .card-actions small {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .btn-link {
+      background: transparent;
+      border: none;
+      color: #16a34a;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-link:hover {
+      color: #15803d;
+    }
+
+    /* Process */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+    }
+
+    .step {
+      padding: 12px;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      font-size: 12px;
+    }
+
+    .step-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #16a34a;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .step h3 {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .step p {
+      color: #6b7280;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 16px;
+      font-size: 11px;
+      color: #6b7280;
+      background: #f9fafb;
+    }
+
+    footer .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* WhatsApp bubble */
+    .wa-bubble {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .wa-label {
+      background: #111827;
+      color: #f9fafb;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+    }
+
+    .wa-button {
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: #22c55e;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.55);
+    }
+
+    .wa-button:hover {
+      background: #16a34a;
+    }
+
+    .wa-button svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        margin-top: 10px;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <div class="nav">
+      <div class="logo">Kirrak <span>Tees</span></div>
 
-<header>
-    <h1>SERU INVENTIONS</h1>
-    <p>Custom Sublimation & Printing Solutions</p>
-</header>
+      <nav class="nav-links">
+        <a href="#products">T‑Shirts</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#bulk-orders">Bulk & Colleges</a>
+      </nav>
 
-<div class="container">
-    
-    <!-- PRODUCT 1 -->
-    <div class="product-card">
-        <!-- Replace 'src' with your actual image link later -->
-        <img src="https://via.placeholder.com/300?text=Custom+Mug" class="product-image" alt="Sublimation Mug">
-        <h3>Custom Sublimation Mug</h3>
-        <p class="price">₹250</p>
-        <!-- The Script Trigger -->
-        <button class="whatsapp-btn" onclick="orderNow('Custom Sublimation Mug', '250')">
-            Order on WhatsApp
+      <div class="nav-cta">
+        <button class="btn-outline" onclick="scrollToProducts()">View products</button>
+        <button class="btn-primary" onclick="orderOnWhatsapp()">
+          Order on WhatsApp
         </button>
+      </div>
     </div>
+  </header>
 
-    <!-- PRODUCT 2 -->
-    <div class="product-card">
-        <img src="https://via.placeholder.com/300?text=DTF+T-Shirt" class="product-image" alt="DTF T-Shirt">
-        <h3>DTF Printed T-Shirt</h3>
-        <p class="price">₹450</p>
-        <button class="whatsapp-btn" onclick="orderNow('DTF Printed T-Shirt', '450')">
+  <!-- Hero -->
+  <main>
+    <section class="hero">
+      <div>
+        <span class="hero-badge">Hyderabad’s quick‑turn custom tees</span>
+        <h1>Custom T‑Shirt printing for <span>colleges, corporates & brands</span></h1>
+        <p class="hero-subtitle">
+          100+ colors, screen, DTF & vinyl prints, low minimums, and Pan‑India delivery.
+          Share your design on WhatsApp and get mockups, pricing, and timelines in minutes.
+        </p>
+        <ul class="hero-list">
+          <li>Solid crew‑neck and drop‑shoulder fits for events, teams, and brands.</li>
+          <li>Names, numbers, and full‑front prints for fests, freshers, and farewells.</li>
+          <li>Corporate merch kits with tees, hoodies, mugs, and more.</li>
+        </ul>
+
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="orderOnWhatsapp()">
             Order on WhatsApp
-        </button>
+          </button>
+          <button class="btn-outline" onclick="scrollToProducts()">Browse T‑shirts</button>
+        </div>
+        <p class="hero-note">
+          Have your design, logo, or reference photo ready? Send it on WhatsApp and get a custom quote.
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="mockup-row">
+            <div class="mockup-tees">
+              <div class="mockup-tee">
+                <span class="badge">College Fest</span>
+                PRINTED FRONT
+                <span class="color">Navy</span>
+              </div>
+              <div class="mockup-tee">
+                <span class="badge">Corporate</span>
+                LOGO LEFT CHEST
+                <span class="color">White</span>
+              </div>
+              <div class="mockup-tee">
+                <span class="badge">Teams</span>
+                NAME & NUMBER
+                <span class="color">Black</span>
+              </div>
+              <div class="mockup-tee">
+                <span class="badge">Streetwear</span>
+                OVERSIZED PRINT
+                <span class="color">Olive</span>
+              </div>
+            </div>
+
+            <div class="mockup-info">
+              <h3>Custom tee kits</h3>
+              <p>Perfect for fests, freshers, corporate events, and Instagram brands.</p>
+              <div class="mockup-meta">
+                <span><strong>Minimum:</strong> 10 pcs</span>
+                <span><strong>Printing:</strong> DTF, screen, vinyl</span>
+              </div>
+              <div class="mockup-pills">
+                <span class="pill green">Fast mockups</span>
+                <span class="pill">Bulk pricing</span>
+                <span class="pill">Pan‑India shipping</span>
+              </div>
+              <button class="mockup-cta" onclick="orderOnWhatsapp('Custom Tee Kit')">
+                Share design on WhatsApp →
+              </button>
+            </div>
+          </div>
+
+          <p class="hero-tagline">
+            Send your logo, names, or reference photo on WhatsApp. Get mockups, fabric suggestions, and quotes before printing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products">
+      <h2 class="section-title">Popular T‑Shirt options</h2>
+      <p class="section-subtitle">
+        Replace these cards with your own product photos, colors, sizes, and pricing. Use the WhatsApp button to capture enquiries.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-image alt-1">
+            <span class="card-badge">Best for Colleges</span>
+          </div>
+          <div class="card-body">
+            <h3>Classic crew‑neck tees</h3>
+            <p>Regular‑fit cotton tees, perfect for fests, freshers, and bulk college orders.</p>
+            <div class="card-meta">
+              <span><strong>Fabric:</strong> 180–200 GSM cotton</span>
+            </div>
+            <div class="card-meta">
+              <span><strong>Printing:</strong> Screen / DTF</span>
+              <span><strong>MOQ:</strong> 25 pcs</span>
+            </div>
+            <div class="card-actions">
+              <small>Ask for color card & size chart on WhatsApp.</small>
+              <button class="btn-link" onclick="orderOnWhatsapp('Classic crew-neck tees')">
+                Order on WhatsApp →
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image alt-2">
+            <span class="card-badge">Teams & Events</span>
+          </div>
+          <div class="card-body">
+            <h3>Names & numbers tees</h3>
+            <p>Ideal for sports teams, departments, hackathons, and fest crews.</p>
+            <div class="card-meta">
+              <span><strong>Back:</strong> Big name & number</span>
+            </div>
+            <div class="card-meta">
+              <span><strong>Print:</strong> Vinyl / DTF</span>
+              <span><strong>MOQ:</strong> 15 pcs</span>
+            </div>
+            <div class="card-actions">
+              <small>Share name list in Excel or WhatsApp directly.</small>
+              <button class="btn-link" onclick="orderOnWhatsapp('Names & numbers tees')">
+                Order on WhatsApp →
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image alt-3">
+            <span class="card-badge">Corporate</span>
+          </div>
+          <div class="card-body">
+            <h3>Logo‑branded tees</h3>
+            <p>Clean logo placements for startups, corporates, and employee welcome kits.</p>
+            <div class="card-meta">
+              <span><strong>Placement:</strong> Left chest / sleeve</span>
+            </div>
+            <div class="card-meta">
+              <span><strong>Print:</strong> Screen / embroidery</span>
+              <span><strong>MOQ:</strong> 20 pcs</span>
+            </div>
+            <div class="card-actions">
+              <small>Send logo file (PNG, AI, PDF) for a quick quote.</small>
+              <button class="btn-link" onclick="orderOnWhatsapp('Logo-branded corporate tees')">
+                Order on WhatsApp →
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image">
+            <span class="card-badge">Streetwear</span>
+          </div>
+          <div class="card-body">
+            <h3>Oversized & drop‑shoulder</h3>
+            <p>Bold prints, trendy fits, and premium fabric for reels‑ready streetwear drops.</p>
+            <div class="card-meta">
+              <span><strong>Fit:</strong> Oversized / drop‑shoulder</span>
+            </div>
+            <div class="card-meta">
+              <span><strong>Print:</strong> Full‑front / back</span>
+              <span><strong>MOQ:</strong> 10 pcs</span>
+            </div>
+            <div class="card-actions">
+              <small>Send your moodboard or reference designs on WhatsApp.</small>
+              <button class="btn-link" onclick="orderOnWhatsapp('Oversized & drop-shoulder streetwear tees')">
+                Order on WhatsApp →
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works">
+      <h2 class="section-title">How the process works</h2>
+      <p class="section-subtitle">
+        Everything happens over WhatsApp – from sharing your design to approving mockups and confirming quantities.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Share design & quantity</h3>
+          <p>Send your logo, reference photo, or event details on WhatsApp along with an approximate quantity and date.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Get mockups & quote</h3>
+          <p>Receive fabric suggestions, color options, and printing method along with pricing and timelines.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Approve & print</h3>
+          <p>Once you approve the mockup and advance, printing starts. Photos or videos can be shared during production.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Dispatch & delivery</h3>
+          <p>Orders are dispatched with tracking, and bulk orders for colleges and corporates are shipped Pan‑India.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bulk orders -->
+    <section id="bulk-orders">
+      <h2 class="section-title">Colleges, corporates & bulk enquiries</h2>
+      <p class="section-subtitle">
+        Whether you are from a college, company, or running a brand, use the WhatsApp button to share your requirement in 1–2 lines.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">A</div>
+          <h3>Colleges & fests</h3>
+          <p>Freshers, farewells, techno‑cultural fests, hackathons, and department tees with names and numbers.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">B</div>
+          <h3>Corporates & startups</h3>
+          <p>Onboarding kits, event tees, and internal team merch with logos and employee names.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">C</div>
+          <h3>Instagram brands & creators</h3>
+          <p>Print‑on‑demand style drops, small‑batch releases, and sample runs for new designs.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="inner">
+      <span>© 2025 Kirrak Tees. Custom T‑shirt printing from Hyderabad.</span>
+      <span>Order or enquire directly on WhatsApp: +91‑88974‑88433</span>
     </div>
+  </footer>
 
-    <!-- PRODUCT 3 -->
-    <div class="product-card">
-        <img src="https://via.placeholder.com/300?text=Corporate+Bottle" class="product-image" alt="Water Bottle">
-        <h3>Corporate Water Bottle</h3>
-        <p class="price">₹350</p>
-        <button class="whatsapp-btn" onclick="orderNow('Corporate Water Bottle', '350')">
-            Order on WhatsApp
-        </button>
-    </div>
+  <!-- WhatsApp bubble -->
+  <div class="wa-bubble">
+    <div class="wa-label">Order / enquiry on WhatsApp</div>
+    <button class="wa-button" onclick="orderOnWhatsapp()">
+      <!-- Simple WhatsApp icon -->
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16 3C9.9 3 5 7.7 5 13.8c0 2.4.8 4.6 2.2 6.4L5 27l7-2.1c1.6.6 3.3.9 5 .9 6.1 0 11-4.7 11-10.8C28 7.7 23.1 3 16 3zm5.6 15.4c-.2.6-1 1-1.6 1.1-.4.1-.9.1-1.5-.1-.3-.1-.7-.2-1.2-.4-2.1-.9-3.5-2.9-3.6-3-.1-.1-.9-1.3-.9-2.5 0-1.2.6-1.7.8-1.9.2-.2.4-.3.6-.3h.4c.1 0 .3 0 .4.3.2.4.6 1.5.6 1.6.1.1.1.3 0 .4-.1.1-.1.2-.2.3-.1.1-.2.2-.3.4-.1.1-.2.2-.1.4.1.2.4.7.9 1.1.6.6 1.1.8 1.3.9.1.1.3.1.4 0 .1-.1.5-.6.6-.8.1-.2.3-.2.4-.1.2.1 1.3.6 1.6.8.2.1.3.2.3.3.1.4.1.9-.1 1.4z"></path>
+      </svg>
+    </button>
+  </div>
 
-</div>
+  <script>
+    const WHATSAPP_NUMBER = "918897488433";
+    const WHATSAPP_BASE_URL = "https://wa.me/" + WHATSAPP_NUMBER;
 
-<script>
-    // JAVASCRIPT: This controls how the website WORKS
-    function orderNow(productName, price) {
-        // STEP 1: Put your WhatsApp number here (Country code + Number)
-        var myNumber = "919876543210"; 
-        
-        // STEP 2: We create the message automatically
-        var message = "Hello, I want to order: " + productName + " (Price: ₹" + price + "). Please share payment details.";
-        
-        // STEP 3: Open WhatsApp
-        var url = "https://wa.me/" + myNumber + "?text=" + encodeURIComponent(message);
-        window.open(url, '_blank');
+    function orderOnWhatsapp(productName) {
+      const defaultText =
+        "Hi, I visited your Kirrak Tees website and want to order custom T‑shirts.";
+      const textWithProduct = productName
+        ? `Hi, I saw *${productName}* on your Kirrak Tees website. I want more details and pricing.`
+        : defaultText;
+
+      const url = WHATSAPP_BASE_URL + "?text=" + encodeURIComponent(textWithProduct);
+      window.open(url, "_blank");
     }
-</script>
 
+    function scrollToProducts() {
+      const section = document.getElementById("products");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  </script>
 </body>
 </html>
